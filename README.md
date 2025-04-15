@@ -1,150 +1,150 @@
-# Analizador de Entornos de Automatización
 
-Una herramienta para detectar, analizar y comparar entornos de desarrollo y testing en diferentes sistemas operativos, con el fin de identificar problemas de compatibilidad entre entornos.
+# 🔎 **InspectorDeEntornos**
 
-## Descripción
+![License](https://img.shields.io/badge/license-MIT-green)
+![Last Commit](https://img.shields.io/github/last-commit/E-Gregorio/InspectorDeEntornos)
+![Issues](https://img.shields.io/github/issues/E-Gregorio/InspectorDeEntornos)
+![Stars](https://img.shields.io/github/stars/E-Gregorio/InspectorDeEntornos?style=social)
 
-Esta aplicación web permite ejecutar análisis de entornos de automatización en diferentes sistemas operativos (Windows, Linux, macOS, WSL) y comparar los resultados para identificar diferencias que podrían generar problemas en pipelines de CI/CD.
+**InspectorDeEntornos** es una herramienta web de diagnóstico y comparación de entornos de automatización de pruebas, diseñada para detectar y solucionar problemas de compatibilidad entre diferentes sistemas operativos y entornos de desarrollo.
 
-El analizador detecta:
-- Lenguajes de programación instalados (Python, Java, Node.js, etc.)
-- Navegadores web disponibles
-- Herramientas de testing (Selenium, Pytest, Playwright, etc.)
-- Herramientas de CI/CD
-- Drivers de Selenium
-- Frameworks BDD/TDD
-- Herramientas móviles
-- Y más...
+---
 
-## Características
+## 📘 **Descripción**
 
-- **Detección automática** de herramientas y dependencias
-- **Interfaz web intuitiva** para seleccionar sistemas operativos y ejecutar análisis
-- **Comparación visual** entre diferentes entornos
-- **Identificación de riesgos** basada en diferencias de versiones
-- **Exportación de informes** para documentación y seguimiento
+**InspectorDeEntornos** te permite analizar configuraciones de entornos de automatización en sistemas operativos como **Windows**, **macOS**, **Linux** y **WSL**. Esta herramienta ayuda a identificar diferencias que podrían causar problemas en entornos de desarrollo y **CI/CD**.
 
-## Estructura del proyecto
+### **¿Qué detecta?**
 
-```
+- Versiones de lenguajes de programación: **Python**, **Node.js**, **Java**, etc.
+- Navegadores web instalados.
+- Herramientas de testing: **Playwright**, **Selenium**, **Pytest**, etc.
+- Frameworks BDD/TDD.
+- Drivers de Selenium y herramientas de CLI.
+- Herramientas móviles (Android SDK, etc.).
+- Dependencias del ecosistema **DevOps**.
 
-analizador-entornos/
-├── automation_environment_check.py   # Script Python para análisis del entorno
+---
+
+## 🔧 **Características**
+
+- **Detección automática** de herramientas y dependencias en tu entorno.
+- **Interfaz web intuitiva** para ejecutar análisis.
+- **Comparación visual** de resultados entre entornos.
+- **Identificación de riesgos** y problemas potenciales.
+- **Exportación de informes** en formato JSON para seguimiento y documentación.
+
+---
+
+## 🗂️ **Estructura del Proyecto**
+
+```bash
+InspectorDeEntornos/
+├── automation_environment_check.py   # Script principal en Python
 ├── index.html                        # Interfaz web
 ├── styles.css                        # Estilos CSS
-├── script.js                         # Lógica de la aplicación
+├── script.js                         # Lógica de la app
 └── README.md                         # Documentación
 ```
 
-## Cómo usar
+---
 
-### Requisitos previos
+## 📋 **Requisitos**
 
-- Python 3.x
-- Navegador web moderno (Chrome, Firefox, Edge)
+- **Python 3.x**
+- **Navegador web moderno**: Chrome, Firefox, Edge, etc.
 
-### Instalación
+---
 
-1. Clone este repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/analizador-entornos.git
-   cd analizador-entornos
-   ```
+## 🚀 **COMO EJECUTAR LA APLICACION LOCALMENTE**
 
-2. Ejecute un servidor HTTP local usando Python:
-   ```bash
-   python -m http.server 8000
-   ```
+### 1. **Clonar el repositorio**
 
-   Después de ejecutar este comando correctamente, deberías ver un mensaje similar a:
-   ```bash
-   Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-   ```
+```bash
+git clone https://github.com/E-Gregorio/InspectorDeEntornos.git
+cd InspectorDeEntornos
+```
 
-3. Accede a la aplicación:
-   - Abre tu navegador web
-   - Dirígete a: `http://localhost:8000`
-   - Verás una lista de archivos en el directorio donde ejecutaste el comando
-   - Haz clic en `index.html` para abrir la aplicación
+### 2. **EJECUTAR UN SERVIDOR HTTP LOCAL CON PYTHON**
 
-   El servidor permanecerá activo mientras la terminal esté abierta. Puedes detenerlo presionando `Ctrl+C` en la terminal cuando hayas terminado.
-
-### Uso
-
-1. Seleccione el sistema operativo en el que desea realizar el análisis
-2. Haga clic en "Ejecutar Análisis"
-3. Vea los resultados detallados
-4. Ejecute el análisis en otro entorno y luego use "Comparar Entornos" para ver las diferencias
-5. Exporte los resultados usando "Exportar Reporte"
-
-## Casos de uso típicos
-
-### Problema: Pruebas locales exitosas pero fallos en CI/CD
-
-1. Ejecute el análisis en su entorno local
-2. Ejecute el análisis en el entorno de CI/CD
-3. Compare los resultados para identificar diferencias en:
-   - Versiones de lenguajes
-   - Versiones de drivers de navegador
-   - Herramientas de testing faltantes
-   - Diferencias en frameworks
-
-### Problema: Inconsistencia entre equipos de desarrollo
-
-1. Cada miembro del equipo ejecuta el análisis en su entorno
-2. Comparte los resultados (exportados como JSON)
-3. Identifica diferencias que podrían causar problemas
-4. Establece una configuración estándar para el equipo
-
-## Solución de problemas comunes
-
-### Diferencias entre Windows y WSL/Linux
-
-Las diferencias más comunes que pueden causar problemas incluyen:
-
-1. **Navegadores**: WSL/Linux suele carecer de navegadores instalados o accesibles
-2. **Drivers de Selenium**: Deben instalarse manualmente en cada entorno
-3. **Versiones de Python**: Pueden variar significativamente entre sistemas
-4. **Java**: Windows suele tener Oracle JDK mientras que Linux usa OpenJDK
-
-### Recomendaciones para unificar entornos
-
-1. Use contenedores Docker para garantizar consistencia
-2. Establezca versiones específicas de dependencias en requirements.txt o package.json
-3. Cree scripts de configuración para instalar todas las dependencias necesarias
-4. Documente las versiones requeridas de cada herramienta
-
-## Cómo funciona
-
-1. El script Python `automation_environment_check.py` analiza el entorno actual y detecta herramientas instaladas
-2. La interfaz web permite ejecutar este script y visualizar los resultados
-3. La funcionalidad de comparación analiza las diferencias entre entornos y asigna niveles de riesgo
-4. El sistema destaca incompatibilidades potenciales que podrían causar problemas
-
-## Limitaciones
-
-- La detección de algunas herramientas depende de que estén en el PATH o en ubicaciones conocidas
-- En entornos Linux se requieren permisos adecuados para la detección
-
-## Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, siga estos pasos:
-
-1. Fork el repositorio
-2. Cree una rama para su característica (`git checkout -b feature/nueva-caracteristica`)
-3. Implemente sus cambios
-4. Envíe un pull request
-
-*
-ANALIZADOR DE ENTORNOS
+```bash
 python -m http.server 8000
+```
 
-Después de ejecutar este comando correctamente, deberías ver un mensaje similar a:
-Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
-Esto indica que el servidor HTTP está funcionando. Ahora puedes:
-1.	Abrir tu navegador web
-2.	Ir a la dirección: http://localhost:8000
-3.	Verás una lista de archivos en el directorio donde ejecutaste el comando
-4.	Haz clic en index.html para abrir la aplicación
-El servidor permanecerá activo mientras la terminal esté abierta. Puedes detenerlo presionando Ctrl+C en la terminal cuando hayas terminado.
-Este proyecto fue creado para solucionar problemas comunes en entornos de automatización de pruebas y facilitar la depuración de problemas de compatibilidad entre entornos de desarrollo y CI/CD.*
+Esto lanzará un servidor local que podrás acceder en **<http://localhost:8000>**.
+
+### 3. **ABRIR LA APLICACION**
+
+- Abre tu navegador y ve a [http://localhost:8000](http://localhost:8000).
+- Haz clic en **index.html** para comenzar.
+
+El servidor se mantendrá activo mientras la terminal esté abierta. Puedes detenerlo presionando **Ctrl + C**.
+
+---
+
+## 🧪 **Uso Paso a Paso**
+
+1. **Selecciona el sistema operativo** donde deseas realizar el análisis.
+2. Haz clic en **"Ejecutar Análisis"** para iniciar el diagnóstico.
+3. Revisa los **resultados detallados** de tu entorno.
+4. **Compara entornos**: ejecuta el análisis en otro sistema y usa la opción de **"Comparar Entornos"**.
+5. **Exporta el informe** (opcional) en formato JSON.
+
+---
+
+## 🧩 **Casos de Uso**
+
+### 💥 **CI/CD con Errores de Configuración**
+
+1. Ejecuta el análisis en tu entorno local.
+2. Ejecuta el análisis en el entorno CI/CD (Ej. GitHub Actions).
+3. **Compara los resultados** para identificar discrepancias en versiones de herramientas, configuraciones y dependencias.
+
+### 👥 **Equipos con Entornos Desalineados**
+
+1. Cada miembro del equipo ejecuta el análisis en su entorno.
+2. Comparan y exportan los resultados.
+3. Definen un **entorno común** o ajustan las configuraciones necesarias.
+
+---
+
+## 💡 **Recomendaciones para Estandarizar Entornos**
+
+- **Docker**: Utiliza contenedores para garantizar consistencia en todos los entornos.
+- **Dependencias**: Mantén los archivos de dependencias (**requirements.txt**, **package.json**) actualizados.
+- **Automatización**: Utiliza scripts para instalar las dependencias necesarias de forma automática.
+- **Documentación**: Registra y versiona las dependencias y versiones de herramientas requeridas.
+
+---
+
+## ❗ **Limitaciones**
+
+- La detección depende de la configuración del **PATH** y las rutas conocidas.
+- En **Linux**, algunas herramientas pueden requerir permisos adicionales.
+- El análisis no detecta software instalado fuera de las rutas estándar.
+
+---
+
+## 🛠️ **Contribuciones**
+
+¡Las contribuciones son bienvenidas! ✨
+
+### Pasos para contribuir
+
+1. **Fork** el repositorio.
+2. Crea una nueva rama para tu característica:
+   bash
+   git checkout -b feature/nueva-caracteristica
+
+3. Realiza tus cambios.
+4. Abre un **Pull Request** con una descripción detallada de los cambios.
+
+---
+
+## 📄 **Licencia**
+
+Este proyecto está bajo la **licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+**¡Gracias por utilizar InspectorDeEntornos!** 😊
