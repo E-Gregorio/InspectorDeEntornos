@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Entornos de Automatización</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analizador de Entornos de Automatización</h1>
+            <p>Herramienta para detectar y comparar entornos de desarrollo y testing</p>
+        </header>
+
+        <div class="main-content">
+            <section class="system-selection">
+                <h2>Selecciona el Sistema Operativo</h2>
+                <div class="os-buttons">
+                    <button id="windows-btn" class="os-btn">
+                        <span class="os-icon windows-icon">🪟</span>
+                        Windows
+                    </button>
+                    <button id="linux-btn" class="os-btn">
+                        <span class="os-icon linux-icon">🐧</span>
+                        Linux
+                    </button>
+                    <button id="mac-btn" class="os-btn">
+                        <span class="os-icon mac-icon">🍎</span>
+                        macOS
+                    </button>
+                    <button id="wsl-btn" class="os-btn">
+                        <span class="os-icon wsl-icon">🔄</span>
+                        WSL
+                    </button>
+                </div>
+            </section>
+
+            <section class="actions">
+                <button id="run-analysis" class="action-btn primary-btn">Ejecutar Análisis</button>
+                <button id="compare-environments" class="action-btn secondary-btn">Comparar Entornos</button>
+                <button id="export-report" class="action-btn secondary-btn">Exportar Reporte</button>
+                <button id="load-report-btn" class="action-btn secondary-btn">Cargar Reporte JSON</button>
+                <input type="file" id="report-file" accept=".json" style="display: none;">
+            </section>
+
+            <section class="results">
+                <div class="results-header">
+                    <h2>Resultados del Análisis</h2>
+                    <select id="report-filter">
+                        <option value="all">Todo</option>
+                        <option value="languages">Lenguajes de Programación</option>
+                        <option value="browsers">Navegadores</option>
+                        <option value="testing-tools">Herramientas de Testing</option>
+                        <option value="ci-cd">Herramientas CI/CD</option>
+                        <option value="mobile">Herramientas Móviles</option>
+                        <option value="drivers">Drivers de Selenium</option>
+                        <option value="frameworks">Frameworks BDD/TDD</option>
+                    </select>
+                </div>
+                
+                <div id="results-container">
+                    <div class="placeholder-msg">
+                        Selecciona un sistema operativo y haz clic en "Ejecutar Análisis" para comenzar.
+                    </div>
+                </div>
+            </section>
+
+            <section class="comparison-view hidden" id="comparison-section">
+                <h2>Comparación de Entornos</h2>
+                <div class="comparison-tabs">
+                    <button class="tab-btn active" data-target="tab-differences">Diferencias</button>
+                    <button class="tab-btn" data-target="tab-compatible">Compatibles</button>
+                    <button class="tab-btn" data-target="tab-all">Todo</button>
+                </div>
+                <div class="comparison-content">
+                    <div id="tab-differences" class="tab-panel active">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Herramienta</th>
+                                    <th>Tipo</th>
+                                    <th>Entorno 1</th>
+                                    <th>Entorno 2</th>
+                                    <th>Nivel de Riesgo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="differences-table-body">
+                                <!-- Los datos se cargarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="tab-compatible" class="tab-panel">
+                        <p>Herramientas compatibles en ambos entornos</p>
+                        <ul id="compatible-list">
+                            <!-- Los datos se cargarán dinámicamente -->
+                        </ul>
+                    </div>
+                    <div id="tab-all" class="tab-panel">
+                        <p>Comparación completa de entornos</p>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Categoría</th>
+                                    <th>Herramienta</th>
+                                    <th>Entorno 1</th>
+                                    <th>Entorno 2</th>
+                                </tr>
+                            </thead>
+                            <tbody id="all-comparison-body">
+                                <!-- Los datos se cargarán dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Analizador de Entornos de Automatización v1.0</p>
+            <p>Para verificar problemas de compatibilidad entre entornos de desarrollo y testing</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
