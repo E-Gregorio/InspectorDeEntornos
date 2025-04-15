@@ -67,6 +67,8 @@ cd InspectorDeEntornos
 
 ### 2. **EJECUTAR UN SERVIDOR HTTP LOCAL CON PYTHON**
 
+Abre una **Terminal** (en **macOS/Linux**) o **Command Prompt / PowerShell** (en **Windows**), y ejecuta el siguiente comando:
+
 ```bash
 python -m http.server 8000
 ```
